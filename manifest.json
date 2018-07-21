@@ -2,7 +2,7 @@
 
     "manifest_version": 2,
     "name": "Ororo",
-    "version": "1.0",
+    "version": "1.1",
   
     "description": "Download media files from the page automaticly.",
   
@@ -15,6 +15,13 @@
         "matches": ["*://*.ororo.tv/*"],
         "js": ["script.js"]
       }
-    ]
+    ],
+
+    "browser_action": {
+        "default_icon": {
+            "38": "icons/border-48.png"
+        },
+        "default_title": "Download series"
+      }
   
   }
