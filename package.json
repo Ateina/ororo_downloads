@@ -1,0 +1,17 @@
+{
+  "name": "ororo",
+  "version": "1.0.0",
+  "description": "Firefox extention that helps to download episodes on two clicks from ororo.tv",
+  "main": "background.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ateina/ororo_downloads.git"
+  },
+  "author": "Ateina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ateina/ororo_downloads/issues"
+  },
+  "homepage": "https://github.com/Ateina/ororo_downloads#readme"
+}
