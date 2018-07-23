@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/Ateina/ororo_downloads/issues"
   },
-  "homepage": "https://github.com/Ateina/ororo_downloads#readme"
+  "homepage": "https://github.com/Ateina/ororo_downloads#readme",
+  "devDependencies": {
+    "web-ext-types": "^2.1.0"
+  }
 }
