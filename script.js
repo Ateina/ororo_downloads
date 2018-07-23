@@ -1,8 +1,7 @@
 function downloadSeries() {
     var seasonNumber = getSeasonNumber();
-    var chapters = gettAllChapters(seasonNumber);
-    chapters = Array.from(chapters);
-    chapters[0].click();
+    var chapters = getAllChapters(seasonNumber);
+    downloadAllSeries(chapters);
 }
 
 function getSeasonNumber() {
@@ -13,10 +12,19 @@ function getSeasonNumber() {
     return seasonNumber;
 }
 
-function gettAllChapters(seasonNumber) {
+function getAllChapters(seasonNumber) {
     var elem = document.getElementById(seasonNumber);
     var chapters = elem.getElementsByClassName("js-media-download");
     return chapters;
+}
+
+function downloadAllSeries(chapters){
+    chapters = Array.from(chapters);
+    chapters.forEach((chapter, index) => {
+        setTimeout(() => {
+            chapter.click();
+        }, 5000 * index);
+    });
 }
 
 browser.runtime.onMessage.addListener(() => {
