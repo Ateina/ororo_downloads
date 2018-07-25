@@ -6,21 +6,21 @@ function downloadSeries(): void {
 
 function getSeasonNumber(): string {
     const season: HTMLCollectionOf<Element> = document.getElementsByClassName("js-season-link-wrapper active");
-    var s: NodeListOf<Element> = season[0].getElementsByClassName('js-season-link');
-    var seasonNumber: string = s[0].hash.replace('#', '');
+    const s: NodeListOf<Element> = season[0].getElementsByClassName("js-season-link");
+    const seasonNumber: string = s[0].hash.replace("#", "");
     return seasonNumber;
 }
 
 function getAllChapters(seasonNumber: string): NodeListOf<Element> {
-    let chapters: NodeListOf<Element> = {};
+    let chapters: NodeListOf<Element> = null;
     const elem: HTMLElement | null  = document.getElementById(seasonNumber);
-    if (elem){
+    if (elem) {
         chapters = elem.getElementsByClassName("js-media-download");
     }
     return chapters;
 }
 
-function downloadAllSeries(chapters: NodeListOf<Element>): void{
+function downloadAllSeries(chapters: NodeListOf<Element>): void {
     const arrayOfChapters: Element[] = Array.from(chapters);
     arrayOfChapters.forEach((chapter, index: number) => {
         setTimeout(() => {
