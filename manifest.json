@@ -3,6 +3,9 @@
   "name": "Ororo",
   "version": "1.2",
   "description": "Download media files from the page automaticly.",
+  "permissions": [
+    "activeTab"
+  ],
   "icons": {
     "48": "icons/border-48.png"
   },
