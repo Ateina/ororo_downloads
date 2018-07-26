@@ -1,6 +1,17 @@
-.test {
-    width: 100px;
-    height: 100px;
-    background-color: sandybrown;
-    color: darkviolet;
+body {
+    background-color: ghostwhite;
+}
+
+#popup-content {
+    width: 300px;
+}
+
+.menu-title {
+    height: 40px;
+    font-size: 1.2em;
+}
+
+.option {
+    height: 30px;
+    font-size: 1em;
 }

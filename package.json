@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Firefox extention that helps to download episodes on two clicks from ororo.tv",
   "main": "background.js",
-  "scripts": {},
+  "scripts": {
+    "build": "npm run ts:compile:background",
+    "ts:compile:background": "tsc --out background.js ./Typescript/Backgroung/background.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ateina/ororo_downloads.git"

@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="popup.css"/>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css" />
+</head>
 
 <body>
   <div id="popup-content">
-    <div class="test">Test</div>
+
+    <span class="menu-title">Choose options to download</span>
+
+    <div class="option">
+      <input type="radio" id="all" name="all" checked />
+      <label for="all">All chapters</label>
+    </div>
+
+    <div class="option">
+      <input type="radio" id="season" name="season" />
+      <label for="season">Current Season</label>
+    </div>
+
+    <button name="submit" type="submit" value="submit-true">
+      Download
+    </button>
+
   </div>
   <script src="popup.js"></script>
 </body>
