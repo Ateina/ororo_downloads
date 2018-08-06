@@ -27,7 +27,11 @@ function downloadAllSeries(chapters) {
 }
 browser.runtime.onMessage.addListener(function (message) {
     if (message.command) {
-        console.log("script  " + message.command);
-        // downloadSeries();
+        if (message.command === "current_season") {
+            downloadSeries();
+        }
+        if (message.command === "all_seasons") {
+            console.log("all_seasons");
+        }
     }
 });

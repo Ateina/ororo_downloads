@@ -13,7 +13,7 @@ function getSeasonNumber(): string {
 
 function getAllChapters(seasonNumber: string): NodeListOf<Element> {
     let chapters: NodeListOf<Element> = null;
-    const elem: HTMLElement | null  = document.getElementById(seasonNumber);
+    const elem: HTMLElement | null = document.getElementById(seasonNumber);
     if (elem) {
         chapters = elem.getElementsByClassName("js-media-download");
     }
@@ -31,7 +31,11 @@ function downloadAllSeries(chapters: NodeListOf<Element>): void {
 
 browser.runtime.onMessage.addListener((message: any) => {
     if (message.command) {
-        console.log("script  " + message.command);
-        // downloadSeries();
+        if (message.command === "current_season") {
+            downloadSeries();
+        }
+        if (message.command === "all_seasons") {
+            console.log("all_seasons");
+        }
     }
 });
