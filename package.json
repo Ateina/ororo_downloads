@@ -4,8 +4,10 @@
   "description": "Firefox extention that helps to download episodes on two clicks from ororo.tv",
   "main": "background.js",
   "scripts": {
-    "build": "npm run ts:compile:background",
-    "ts:compile:background": "tsc --out background.js ./Typescript/Backgroung/background.ts"
+    "build": "npm run ts:compile:background && npm run ts:compile:content && npm run ts:compile:popup",
+    "ts:compile:background": "tsc --out background.js ./Typescript/Background/background.ts",
+    "ts:compile:content": "tsc --out script.js ./Typescript/Content/script.ts",
+    "ts:compile:popup": "tsc --out ./Popup/popup.js ./Popup/popup.ts"
   },
   "repository": {
     "type": "git",

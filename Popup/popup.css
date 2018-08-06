@@ -1,9 +1,12 @@
 body {
-    background-color: ghostwhite;
+    background-color: #283747 ;
+    color: #e5e8e8;
+    font-family: 'Rubik', sans-serif;
 }
 
 #popup-content {
     width: 300px;
+    text-align: center;
 }
 
 .menu-title {
@@ -14,5 +17,9 @@ body {
 .option {
     height: 30px;
     font-size: 1em;
-    border: 1px solid darkmagenta;
+    border: 1px solid #e5e8e8;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 30px;
 }

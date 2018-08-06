@@ -29,6 +29,9 @@ function downloadAllSeries(chapters: NodeListOf<Element>): void {
     });
 }
 
-browser.runtime.onMessage.addListener(() => {
-    downloadSeries();
+browser.runtime.onMessage.addListener((message: any) => {
+    if (message.command) {
+        console.log("script  " + message.command);
+        // downloadSeries();
+    }
 });

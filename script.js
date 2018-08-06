@@ -3,30 +3,31 @@ function downloadSeries() {
     var chapters = getAllChapters(seasonNumber);
     downloadAllSeries(chapters);
 }
-
 function getSeasonNumber() {
     var season = document.getElementsByClassName("js-season-link-wrapper active");
-    var s = season[0].getElementsByClassName('js-season-link');
-    var seasonNumber = s[0].hash.replace('#', '');
-    console.log(seasonNumber);
+    var s = season[0].getElementsByClassName("js-season-link");
+    var seasonNumber = s[0].hash.replace("#", "");
     return seasonNumber;
 }
-
 function getAllChapters(seasonNumber) {
+    var chapters = null;
     var elem = document.getElementById(seasonNumber);
-    var chapters = elem.getElementsByClassName("js-media-download");
+    if (elem) {
+        chapters = elem.getElementsByClassName("js-media-download");
+    }
     return chapters;
 }
-
-function downloadAllSeries(chapters){
-    chapters = Array.from(chapters);
-    chapters.forEach((chapter, index) => {
-        setTimeout(() => {
+function downloadAllSeries(chapters) {
+    var arrayOfChapters = Array.from(chapters);
+    arrayOfChapters.forEach(function (chapter, index) {
+        setTimeout(function () {
             chapter.click();
         }, 5000 * index);
     });
 }
-
-browser.runtime.onMessage.addListener(() => {
-    downloadSeries();
+browser.runtime.onMessage.addListener(function (message) {
+    if (message.command) {
+        console.log("script  " + message.command);
+        // downloadSeries();
+    }
 });
