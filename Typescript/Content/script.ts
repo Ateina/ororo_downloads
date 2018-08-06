@@ -1,28 +1,31 @@
 function downloadSeries(): void {
     const seasonNumber: string = getSeasonNumber();
-    const chapters: NodeListOf<Element> = getAllChapters(seasonNumber);
-    downloadAllSeries(chapters);
+    const chapters: NodeListOf<HTMLElement> | null = getAllChapters(seasonNumber);
+    if (chapters) {
+        downloadAllSeries(chapters);
+    }
 }
 
 function getSeasonNumber(): string {
     const season: HTMLCollectionOf<Element> = document.getElementsByClassName("js-season-link-wrapper active");
-    const s: NodeListOf<Element> = season[0].getElementsByClassName("js-season-link");
+    const s: NodeListOf<HTMLAnchorElement> =
+        season[0].getElementsByClassName("js-season-link") as NodeListOf<HTMLAnchorElement>;
     const seasonNumber: string = s[0].hash.replace("#", "");
     return seasonNumber;
 }
 
-function getAllChapters(seasonNumber: string): NodeListOf<Element> {
-    let chapters: NodeListOf<Element> = null;
+function getAllChapters(seasonNumber: string): NodeListOf<HTMLElement> | null {
     const elem: HTMLElement | null = document.getElementById(seasonNumber);
     if (elem) {
-        chapters = elem.getElementsByClassName("js-media-download");
+        return elem.getElementsByClassName("js-media-download") as NodeListOf<HTMLElement>;
+    } else {
+        return null;
     }
-    return chapters;
 }
 
-function downloadAllSeries(chapters: NodeListOf<Element>): void {
-    const arrayOfChapters: Element[] = Array.from(chapters);
-    arrayOfChapters.forEach((chapter, index: number) => {
+function downloadAllSeries(chapters: NodeListOf<HTMLElement>): void {
+    const arrayOfChapters: HTMLElement[] = Array.from(chapters);
+    arrayOfChapters.forEach((chapter: HTMLElement, index: number) => {
         setTimeout(() => {
             chapter.click();
         }, 5000 * index);
