@@ -23,3 +23,7 @@ body {
     cursor: pointer;
     line-height: 30px;
 }
+
+.option:hover{
+    background-color: #455b72;
+}

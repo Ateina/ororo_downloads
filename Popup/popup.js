@@ -39,5 +39,7 @@ function reportError(error) {
 function reportExecuteScriptError(error) {
     console.error("Failed to execute beastify content script: " + error.message);
 }
-browser.tabs.executeScript({ file: "./../script.js" })
+browser.tabs.executeScript({
+    file: "./../script.js"
+})
     .then(listenForClicks)["catch"](reportExecuteScriptError);
