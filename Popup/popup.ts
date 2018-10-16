@@ -16,7 +16,7 @@ function listenForClicks(): void {
                     active: true,
                     currentWindow: true,
                 })
-                .then(sendMessageAllSeasons)
+                .then(sendMessageCurrentSeasonUnwanched)
                 .catch(reportError);
         }
     });
@@ -40,10 +40,10 @@ function sendMessageCurrentSeason(tabs: any): void {
     );
 }
 
-function sendMessageAllSeasons(tabs: any): void {
+function sendMessageCurrentSeasonUnwanched(tabs: any): void {
     browser.tabs.sendMessage(
         tabs[0].id,
-        { command: "all_seasons" },
+        { command: "current_season_unwatched" },
     );
 }
 

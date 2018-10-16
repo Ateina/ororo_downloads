@@ -13,7 +13,7 @@ function listenForClicks() {
                 active: true,
                 currentWindow: true
             })
-                .then(sendMessageAllSeasons)["catch"](reportError);
+                .then(sendMessageCurrentSeasonUnwanched)["catch"](reportError);
         }
     });
 }
@@ -30,8 +30,8 @@ function getPopupCommand(event) {
 function sendMessageCurrentSeason(tabs) {
     browser.tabs.sendMessage(tabs[0].id, { command: "current_season" });
 }
-function sendMessageAllSeasons(tabs) {
-    browser.tabs.sendMessage(tabs[0].id, { command: "all_seasons" });
+function sendMessageCurrentSeasonUnwanched(tabs) {
+    browser.tabs.sendMessage(tabs[0].id, { command: "current_season_unwatched" });
 }
 function reportError(error) {
     console.error("Could not do something: " + error);
